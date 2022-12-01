@@ -1,2 +1,2 @@
 ExUnit.start()
-Ecto.Adapters.SQL.Sandbox.mode(Mongo.Repo, :manual)
+Ecto.Adapters.SQL.Sandbox.mode(PhoenixMongo.Repo, :manual)

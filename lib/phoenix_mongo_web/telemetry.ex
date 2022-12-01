@@ -1,4 +1,4 @@
-defmodule MongoWeb.Telemetry do
+defmodule PhoenixMongoWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -31,11 +31,11 @@ defmodule MongoWeb.Telemetry do
       ),
 
       # Database Metrics
-      summary("mongo.repo.query.total_time", unit: {:native, :millisecond}),
-      summary("mongo.repo.query.decode_time", unit: {:native, :millisecond}),
-      summary("mongo.repo.query.query_time", unit: {:native, :millisecond}),
-      summary("mongo.repo.query.queue_time", unit: {:native, :millisecond}),
-      summary("mongo.repo.query.idle_time", unit: {:native, :millisecond}),
+      summary("phoenix_mongo.repo.query.total_time", unit: {:native, :millisecond}),
+      summary("phoenix_mongo.repo.query.decode_time", unit: {:native, :millisecond}),
+      summary("phoenix_mongo.repo.query.query_time", unit: {:native, :millisecond}),
+      summary("phoenix_mongo.repo.query.queue_time", unit: {:native, :millisecond}),
+      summary("phoenix_mongo.repo.query.idle_time", unit: {:native, :millisecond}),
 
       # VM Metrics
       summary("vm.memory.total", unit: {:byte, :kilobyte}),
@@ -49,7 +49,7 @@ defmodule MongoWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {MongoWeb, :count_users, []}
+      # {PhoenixMongoWeb, :count_users, []}
     ]
   end
 end

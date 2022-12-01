@@ -1,4 +1,4 @@
-defmodule MongoWeb.ErrorHelpers do
+defmodule PhoenixMongoWeb.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -25,9 +25,9 @@ defmodule MongoWeb.ErrorHelpers do
     # should be written to the errors.po file. The :count option is
     # set by Ecto and indicates we should also apply plural rules.
     if count = opts[:count] do
-      Gettext.dngettext(MongoWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(PhoenixMongoWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(MongoWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(PhoenixMongoWeb.Gettext, "errors", msg, opts)
     end
   end
 end

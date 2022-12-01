@@ -1,11 +1,11 @@
-defmodule MongoWeb.Router do
-  use MongoWeb, :router
+defmodule PhoenixMongoWeb.Router do
+  use PhoenixMongoWeb, :router
 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
-  scope "/api", MongoWeb do
+  scope "/api", PhoenixMongoWeb do
     pipe_through :api
   end
 
@@ -21,7 +21,7 @@ defmodule MongoWeb.Router do
 
     scope "/" do
       pipe_through [:fetch_session, :protect_from_forgery]
-      live_dashboard "/dashboard", metrics: MongoWeb.Telemetry
+      live_dashboard "/dashboard", metrics: PhoenixMongoWeb.Telemetry
     end
   end
 end

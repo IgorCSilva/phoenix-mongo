@@ -7,16 +7,16 @@
 # General application configuration
 use Mix.Config
 
-config :mongo,
-  ecto_repos: [Mongo.Repo]
+config :phoenix_mongo,
+  ecto_repos: [PhoenixMongo.Repo]
 
 # Configures the endpoint
-config :mongo, MongoWeb.Endpoint,
+config :phoenix_mongo, PhoenixMongoWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "pQQQuHYykSudx7M7WEzvOtkntK3cgoZjBDfHjJbAQfGXEWjGlyj5Xml8qXOnI3BD",
-  render_errors: [view: MongoWeb.ErrorView, accepts: ~w(json), layout: false],
-  pubsub_server: Mongo.PubSub,
-  live_view: [signing_salt: "qVwXNd6A"]
+  secret_key_base: "ptFkybN1Gk1Mq+GKR65G2ttQwgVQjUttkmPkiAxMUR2b9umZwtw6xyIs1t4wiBn1",
+  render_errors: [view: PhoenixMongoWeb.ErrorView, accepts: ~w(json), layout: false],
+  pubsub_server: PhoenixMongo.PubSub,
+  live_view: [signing_salt: "q21fmOsS"]
 
 # Configures Elixir's Logger
 config :logger, :console,

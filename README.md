@@ -1,4 +1,4 @@
-# Mongo
+# PhoenixMongo
 
 To start your Phoenix server:
 

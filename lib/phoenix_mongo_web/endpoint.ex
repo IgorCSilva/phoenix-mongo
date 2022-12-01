@@ -1,16 +1,16 @@
-defmodule MongoWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :mongo
+defmodule PhoenixMongoWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :phoenix_mongo
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_mongo_key",
-    signing_salt: "dA14yQet"
+    key: "_phoenix_mongo_key",
+    signing_salt: "3oO/LYm9"
   ]
 
-  socket "/socket", MongoWeb.UserSocket,
+  socket "/socket", PhoenixMongoWeb.UserSocket,
     websocket: true,
     longpoll: false
 
@@ -22,7 +22,7 @@ defmodule MongoWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :mongo,
+    from: :phoenix_mongo,
     gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
@@ -30,7 +30,7 @@ defmodule MongoWeb.Endpoint do
   # :code_reloader configuration of your endpoint.
   if code_reloading? do
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :mongo
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :phoenix_mongo
   end
 
   plug Phoenix.LiveDashboard.RequestLogger,
@@ -48,5 +48,5 @@ defmodule MongoWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug MongoWeb.Router
+  plug PhoenixMongoWeb.Router
 end

@@ -1,5 +1,5 @@
-defmodule MongoWeb.ErrorView do
-  use MongoWeb, :view
+defmodule PhoenixMongoWeb.ErrorView do
+  use PhoenixMongoWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

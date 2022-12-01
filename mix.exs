@@ -1,9 +1,9 @@
-defmodule Mongo.MixProject do
+defmodule PhoenixMongo.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :mongo,
+      app: :phoenix_mongo,
       version: "0.1.0",
       elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -19,7 +19,7 @@ defmodule Mongo.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Mongo.Application, []},
+      mod: {PhoenixMongo.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

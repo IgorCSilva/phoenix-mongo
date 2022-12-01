@@ -1,12 +1,12 @@
-defmodule MongoWeb do
+defmodule PhoenixMongoWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use MongoWeb, :controller
-      use MongoWeb, :view
+      use PhoenixMongoWeb, :controller
+      use PhoenixMongoWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,19 +19,19 @@ defmodule MongoWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: MongoWeb
+      use Phoenix.Controller, namespace: PhoenixMongoWeb
 
       import Plug.Conn
-      import MongoWeb.Gettext
-      alias MongoWeb.Router.Helpers, as: Routes
+      import PhoenixMongoWeb.Gettext
+      alias PhoenixMongoWeb.Router.Helpers, as: Routes
     end
   end
 
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/mongo_web/templates",
-        namespace: MongoWeb
+        root: "lib/phoenix_mongo_web/templates",
+        namespace: PhoenixMongoWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
@@ -54,7 +54,7 @@ defmodule MongoWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import MongoWeb.Gettext
+      import PhoenixMongoWeb.Gettext
     end
   end
 
@@ -63,9 +63,9 @@ defmodule MongoWeb do
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
-      import MongoWeb.ErrorHelpers
-      import MongoWeb.Gettext
-      alias MongoWeb.Router.Helpers, as: Routes
+      import PhoenixMongoWeb.ErrorHelpers
+      import PhoenixMongoWeb.Gettext
+      alias PhoenixMongoWeb.Router.Helpers, as: Routes
     end
   end
 

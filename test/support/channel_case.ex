@@ -1,4 +1,4 @@
-defmodule MongoWeb.ChannelCase do
+defmodule PhoenixMongoWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -11,7 +11,7 @@ defmodule MongoWeb.ChannelCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use MongoWeb.ChannelCase, async: true`, although
+  by setting `use PhoenixMongoWeb.ChannelCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -21,18 +21,18 @@ defmodule MongoWeb.ChannelCase do
     quote do
       # Import conveniences for testing with channels
       import Phoenix.ChannelTest
-      import MongoWeb.ChannelCase
+      import PhoenixMongoWeb.ChannelCase
 
       # The default endpoint for testing
-      @endpoint MongoWeb.Endpoint
+      @endpoint PhoenixMongoWeb.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Mongo.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(PhoenixMongo.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Mongo.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(PhoenixMongo.Repo, {:shared, self()})
     end
 
     :ok
