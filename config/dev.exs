@@ -2,10 +2,10 @@ use Mix.Config
 
 # Configure your database
 config :phoenix_mongo, PhoenixMongo.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "phoenix_mongo_dev",
-  hostname: "localhost",
+  username: System.get_env("DB_USERNAME"),
+  password: System.get_env("DB_PASSWORD"),
+  hostname: System.get_env("DB_HOSTNAME"),
+  database: System.get_env("DB_DATABASE"),
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
