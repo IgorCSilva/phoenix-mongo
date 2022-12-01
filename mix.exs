@@ -20,7 +20,7 @@ defmodule PhoenixMongo.MixProject do
   def application do
     [
       mod: {PhoenixMongo.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :mongodb, :poolboy]
     ]
   end
 
@@ -42,7 +42,9 @@ defmodule PhoenixMongo.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:mongodb, github: "elixir-mongo/mongodb"},
+      {:poolboy, "~> 1.5.2"}
     ]
   end
 

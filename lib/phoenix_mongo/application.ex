@@ -6,6 +6,9 @@ defmodule PhoenixMongo.Application do
   use Application
 
   def start(_type, _args) do
+
+    import Supervisor.Spec
+
     children = [
       # Start the Ecto repository
       PhoenixMongo.Repo,
@@ -14,7 +17,8 @@ defmodule PhoenixMongo.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: PhoenixMongo.PubSub},
       # Start the Endpoint (http/https)
-      PhoenixMongoWeb.Endpoint
+      PhoenixMongoWeb.Endpoint,
+      worker(Mongo, [[name: :mongo, url: "mongodb://igor:1234@phoenix_mongo_db2:27017/admin", pool_size: 2]])
       # Start a worker by calling: PhoenixMongo.Worker.start_link(arg)
       # {PhoenixMongo.Worker, arg}
     ]

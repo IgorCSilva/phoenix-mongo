@@ -35,6 +35,17 @@ services:
     networks:
       - phoenix_mongo
 
+  phoenixmongodb:
+    image: mongo:5.0
+    container_name: phoenix_mongo_db2
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_DATABASE=admin
+      - MONGO_INITDB_ROOT_USERNAME=igor
+      - MONGO_INITDB_ROOT_PASSWORD=1234
+    networks:
+      - phoenix_mongo
 volumes:
   pgdata:
 
